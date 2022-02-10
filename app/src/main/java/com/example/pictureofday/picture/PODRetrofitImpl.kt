@@ -8,6 +8,8 @@ import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
+import kotlin.jvm.Throws
 
 class PODRetrofitImpl  {
     private val baseUrl = "https://api.nasa.gov/"
@@ -27,11 +29,12 @@ class PODRetrofitImpl  {
         httpClient.addInterceptor(interceptor)
             //добавляем кастомный интерсептор - чтобы были Логи
         httpClient.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
-
         return httpClient.build()
     }
 
     inner class PODInterceptor : Interceptor {
+
+        @Throws(IOException::class)
         override fun intercept(chain: Interceptor.Chain): Response {
             return chain.proceed(chain.request())
         }

@@ -15,7 +15,8 @@ class PictureOfTheDayViewModel(
     private val retrofitImpl: PODRetrofitImpl = PODRetrofitImpl()):
 
     ViewModel() {
-        private fun getData() : LiveData<PictureOfTheDayData> {
+         fun getData() : LiveData<PictureOfTheDayData> {
+             sendServerRequest()
             return liveDayDataForViewToObserve
         }
         private fun sendServerRequest() {
@@ -27,7 +28,7 @@ class PictureOfTheDayViewModel(
             if(apiKey.isBlank()) {
                 PictureOfTheDayData.Error(Throwable("You need API key"))
             } else {
-                retrofitImpl.getRetrofitImpl().getPictureOfTheDayAPI(apiKey).enqueue(object : Callback<PODServerResponseData>{
+                retrofitImpl.getRetrofitImpl().getPictureOfTheDay(apiKey).enqueue(object : Callback<PODServerResponseData>{
                     override fun onResponse(
                         call: Call<PODServerResponseData>,
                         response: Response<PODServerResponseData>
@@ -39,8 +40,7 @@ class PictureOfTheDayViewModel(
 
                             if (message.isNotEmpty()) {
                                 liveDayDataForViewToObserve.value = PictureOfTheDayData.Error(
-                                    Throwable("Undefined Error")
-                                )
+                                    Throwable("Undefined Error"))
                             } else {
                                 liveDayDataForViewToObserve.value = PictureOfTheDayData.Error(Throwable(message))
                             }
