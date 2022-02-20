@@ -14,6 +14,8 @@ import coil.load
 import androidx.lifecycle.Observer
 import com.example.pictureofday.MainActivity
 import com.example.pictureofday.R
+import com.example.pictureofday.api.ApiActivity
+import com.example.pictureofday.apibottom.ApiBottomActivity
 import com.example.pictureofday.chips.ChipsFragment
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -68,18 +70,17 @@ class PictureOfTheDayFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId)  {
-            R.id.app_bar_fav -> toast("Favourite")
+            R.id.app_bar_fav ->
+                activity?.let { startActivity(Intent(it, ApiBottomActivity::class.java))}
 
             R.id.app_bar_settings ->
                 activity?.supportFragmentManager?.beginTransaction()?.add(R.id.container, ChipsFragment())?.addToBackStack(null)?.commit()
 
             android.R.id.home -> {
-                activity?.let {
-                    BottomNavigationDrawerFragment().show(it.supportFragmentManager,"tag")
-                }
-            }
-        }
+                activity?.let { BottomNavigationDrawerFragment().show(it.supportFragmentManager,"tag")}}
 
+            R.id.app_bar_api -> activity?.let { startActivity(Intent(it, ApiActivity::class.java)) }
+        }
         return super.onOptionsItemSelected(item)
     }
 

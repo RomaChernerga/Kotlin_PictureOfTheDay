@@ -3,11 +3,12 @@
     <group android:checkableBehavior="none">
         <item
             android:id="@+id/theme_one"
-            android:icon="@drawable/phone1_icon"
+            android:icon="@drawable/theme_icon1_40"
             android:title="Тема 1" />
         <item
             android:id="@+id/theme_two"
-            android:icon="@drawable/phone2_icon"
+            android:icon="@drawable/theme_icon2_40"
             android:title="Тема 2" />
+
     </group>
 </menu>

@@ -11,15 +11,27 @@
         <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/drawable/ic_plus_fab.xml" value="0.227" />
         <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/drawable/ic_settings_menu.xml" value="0.247" />
         <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/drawable/ic_wikipedia.xml" value="0.1515" />
+        <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/drawable/icon_telescope.xml" value="0.23" />
+        <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/drawable/swipe_indicator_active.xml" value="0.19" />
+        <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/drawable/swipe_indicator_inactive.xml" value="0.19" />
+        <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/layout/activity_api.xml" value="0.278125" />
+        <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/layout/activity_api_bottom.xml" value="0.278125" />
+        <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/layout/activity_api_custom_tab_earth.xml" value="0.25" />
+        <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/layout/activity_api_custom_tab_mars.xml" value="0.278125" />
+        <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/layout/activity_api_custom_tab_weather.xml" value="0.278125" />
         <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/layout/activity_main.xml" value="0.371875" />
         <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/layout/bottom_navigation_layout.xml" value="0.371875" />
-        <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.371875" />
+        <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/layout/bottom_sheet_layout.xml" value="0.25" />
         <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/layout/fragment_chips.xml" value="0.371875" />
+        <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/layout/fragment_earth.xml" value="0.278125" />
+        <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/layout/fragment_mars.xml" value="0.278125" />
+        <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/layout/fragment_weather.xml" value="0.278125" />
         <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/layout/main_fragment.xml" value="0.32917705735660846" />
         <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/menu/bottom_navigation_layout.xml" value="0.371875" />
         <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/menu/menu_bottom_bar.xml" value="0.371875" />
         <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/menu/menu_bottom_bar_other_screen.xml" value="0.371875" />
         <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/menu/menu_bottom_navigation.xml" value="0.371875" />
+        <entry key="..\:/AndroidStudioProjects/PictureOfDay/app/src/main/res/menu/menu_bottom_navigation_view.xml" value="0.278125" />
       </map>
     </option>
   </component>
