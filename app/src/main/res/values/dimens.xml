@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <dimen name="tab_text_size">10sp</dimen>
-    <dimen name="fragments_pic_padding">7dp</dimen>
+    <dimen name="fragments_pic_padding">7sp</dimen>
+    <dimen name="text_size_switch">20sp</dimen>
+
 </resources>

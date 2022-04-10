@@ -1,30 +1,45 @@
-package com.example.pictureofday.picture
+package com.example.pictureofday.main.api.picture
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.component1
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import androidx.lifecycle.Observer
 import com.example.pictureofday.MainActivity
 import com.example.pictureofday.R
-import com.example.pictureofday.api.ApiActivity
-import com.example.pictureofday.apibottom.ApiBottomActivity
-import com.example.pictureofday.chips.ChipsFragment
+import com.example.pictureofday.main.api.chips.ChipsFragment
+import com.example.pictureofday.main.api.chips.SwipeActivity
+import com.example.pictureofday.ui.apibottom.ApiBottomActivity
 import com.google.android.material.bottomappbar.BottomAppBar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 import kotlinx.android.synthetic.main.main_fragment.*
 
 class PictureOfTheDayFragment : Fragment() {
 
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
+
     private lateinit var viewModel: PictureOfTheDayViewModel
+
+    @SuppressLint("FragmentLiveDataObserve")
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        // Инициализируем ViewModel
+        viewModel = ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
+        viewModel.getData()
+            .observe(this@PictureOfTheDayFragment, Observer<PictureOfTheDayData> { renderData(it) })
+    }
 
     companion object{
         fun newInstance() = PictureOfTheDayFragment()
@@ -36,16 +51,7 @@ class PictureOfTheDayFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.main_fragment, container, false )
-    }
-
-    @SuppressLint("FragmentLiveDataObserve")
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-            // Инициализируем ViewModel
-        viewModel = ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
-        viewModel.getData()
-            .observe(this@PictureOfTheDayFragment, Observer<PictureOfTheDayData> { renderData(it) })
+        return inflater.inflate(R.layout.main_fragment_start, container, false )
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -59,8 +65,9 @@ class PictureOfTheDayFragment : Fragment() {
                 data = Uri.parse("https://en.wikipedia.org/wiki/${input_edit_text.text.toString()}")
             })
         }
-
         setBottomAppBar(view)
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -74,17 +81,16 @@ class PictureOfTheDayFragment : Fragment() {
                 activity?.let { startActivity(Intent(it, ApiBottomActivity::class.java))}
 
             R.id.app_bar_settings ->
-                activity?.supportFragmentManager?.beginTransaction()?.add(R.id.container, ChipsFragment())?.addToBackStack(null)?.commit()
-
+                activity?.supportFragmentManager?.beginTransaction()?.replace(R.id.container,
+                    ChipsFragment())?.addToBackStack(null)?.commit()
             android.R.id.home -> {
                 activity?.let { BottomNavigationDrawerFragment().show(it.supportFragmentManager,"tag")}}
 
-            R.id.app_bar_api -> activity?.let { startActivity(Intent(it, ApiActivity::class.java)) }
+            // ИЗМЕНИТЬ !!
+            R.id.app_bar_api -> activity?.let { startActivity(Intent(it, SwipeActivity::class.java)) }
         }
         return super.onOptionsItemSelected(item)
     }
-
-
 
     private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
@@ -115,19 +121,19 @@ class PictureOfTheDayFragment : Fragment() {
 
         setHasOptionsMenu(true)
 
-        fab.setOnClickListener {
+        fab_animator.setOnClickListener {
             if (isMain) {
                 isMain = false
                 bottom_app_bar.navigationIcon = null
                 bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                fab.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_back_fab))
+                fab_animator.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_back_fab))
                 bottom_app_bar.replaceMenu(R.menu.menu_bottom_bar_other_screen)
             } else {
                 isMain = true
                 bottom_app_bar.navigationIcon =
                     ContextCompat.getDrawable(context, R.drawable.ic_hamburger_menu_bottom_bar)
                 bottom_app_bar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                fab.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_plus_fab))
+                fab_animator.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_plus_fab))
                 bottom_app_bar.replaceMenu(R.menu.menu_bottom_bar)
             }
         }
@@ -148,6 +154,7 @@ class PictureOfTheDayFragment : Fragment() {
                         placeholder(R.drawable.image_icon_1)
                     }
                 }
+
             }
 
             is PictureOfTheDayData.Loading -> {
@@ -159,6 +166,7 @@ class PictureOfTheDayFragment : Fragment() {
             }
         }
     }
+    //метод для Toast
     private fun Fragment.toast(string: String?) {
         Toast.makeText(context, string, Toast.LENGTH_SHORT).apply {
             setGravity(Gravity.BOTTOM, 0,258)

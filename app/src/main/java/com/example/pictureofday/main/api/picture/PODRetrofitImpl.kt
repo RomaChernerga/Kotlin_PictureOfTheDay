@@ -1,6 +1,5 @@
-package com.example.pictureofday.picture
+package com.example.pictureofday.main.api.picture
 
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -24,11 +23,14 @@ class PODRetrofitImpl  {
         return podRetrofit.create(PictureOfTheDayAPI::class.java)
     }
 
-    private fun createOkHttpClient(interceptor: Interceptor) : OkHttpClient {
+    private fun createOkHttpClient(interceptor: Interceptor): OkHttpClient {
         val httpClient = OkHttpClient.Builder()
-        httpClient.addInterceptor(interceptor)
-            //добавляем кастомный интерсептор - чтобы были Логи
-        httpClient.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        httpClient.let { client ->
+            client.addInterceptor(interceptor)
+            client.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+        }
+        //httpClient.addInterceptor(interceptor)
+        //httpClient.addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         return httpClient.build()
     }
 

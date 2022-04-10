@@ -1,4 +1,4 @@
-package com.example.pictureofday.picture
+package com.example.pictureofday.main.api.picture
 
 import retrofit2.Call
 import retrofit2.http.GET

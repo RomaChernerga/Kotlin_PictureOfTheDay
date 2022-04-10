@@ -1,19 +1,19 @@
 package com.example.pictureofday
 
-import android.annotation.SuppressLint
-import android.content.Context
-import android.content.SharedPreferences
+
+import android.graphics.Color
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.pictureofday.picture.PictureOfTheDayFragment
-import kotlinx.android.synthetic.main.fragment_chips.*
+import androidx.appcompat.app.AppCompatDelegate
+import com.example.pictureofday.main.api.chips.ChipsFragment
+import com.example.pictureofday.main.api.picture.PictureOfTheDayFragment
+import kotlinx.android.synthetic.main.bottom_sheet_layout.*
 
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-
-
+//        setTheme(R.style.DefaultTheme)
+        checkStyle()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -23,5 +23,19 @@ class MainActivity : AppCompatActivity() {
                 .commitNow()
         }
     }
+
+    private fun checkStyle() {
+        when(this.let { ChipsFragment.MyPreferencesSCREEN(it).screenMode }) {
+            0 -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            1 -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
+
+        when(this.let { ChipsFragment.MyPreferencesTHEME(it).themeMode }) {
+            0 -> setTheme(R.style.DefaultTheme)
+            1 -> setTheme(R.style.RedTheme)
+            2 -> setTheme(R.style.BlueTheme)
+        }
+    }
+
 
 }

@@ -1,13 +1,12 @@
-package com.example.pictureofday.apibottom
+package com.example.pictureofday.ui.apibottom
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.Gravity
 import android.widget.Toast
 import com.example.pictureofday.R
-import com.example.pictureofday.api.EarthFragment
-import com.example.pictureofday.api.MarsFragment
-import com.example.pictureofday.api.WeatherFragment
+import com.example.pictureofday.main.api.EarthFragment
+import com.example.pictureofday.main.api.MarsFragment
+import com.example.pictureofday.main.api.WeatherFragment
 import com.google.android.material.badge.BadgeDrawable
 import kotlinx.android.synthetic.main.activity_api_bottom.*
 

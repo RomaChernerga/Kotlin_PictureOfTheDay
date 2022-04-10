@@ -3,70 +3,122 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-
+    android:id="@+id/chips_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
     android:orientation="vertical">
 
         <LinearLayout
-            android:orientation="horizontal"
+            android:orientation="vertical"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-                <Switch
-                    android:id="@+id/switchMaterial"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    tools:text="Enable dark mode"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-                <TextView
-                    android:id="@+id/switch_text_theme"
-                    tools:text="Enable dark mode"
-                    android:gravity="center"
-                    android:textSize="12dp"
+                <androidx.constraintlayout.motion.widget.MotionLayout
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-        </LinearLayout>
+                    android:layout_height="match_parent">
+                        <Button
+                            android:id="@+id/btn_def_theme"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="Default theme"
+                            app:layout_constraintHorizontal_weight="1"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toTopOf="@id/btn_blue_theme"
+                            tools:ignore="MissingConstraints" />
 
+                        <Button
+                            android:id="@+id/btn_blue_theme"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="Red theme"
+                            app:layout_constraintHorizontal_weight="1"
+                            app:layout_constraintBottom_toTopOf="@id/btn_red_theme"
+                            app:layout_constraintTop_toBottomOf="@id/btn_def_theme"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            tools:ignore="MissingConstraints" />
+
+                        <Button
+                            android:id="@+id/btn_red_theme"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="Blue theme"
+                            app:layout_constraintHorizontal_weight="1"
+                            app:layout_constraintTop_toBottomOf="@id/btn_blue_theme"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            tools:ignore="MissingConstraints" />
+
+                        <Button
+                            android:id="@+id/check_theme"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:text="Выбрать тему"
+                            android:visibility="invisible"
+                            app:layout_constraintHorizontal_weight="1"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            tools:layout_editor_absoluteY="5dp" />
+
+                </androidx.constraintlayout.motion.widget.MotionLayout>
+        </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/themeGroup"
-            android:orientation="horizontal"
-            android:padding="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp"
+            android:id="@+id/transitions_container_styles"
+            android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/btn_theme_one"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cornerRadius="5dp"
-                    android:paddingLeft="10dp"
-                    android:layout_margin="8dp"
-                    android:text="Default theme"/>
+                    android:id="@+id/check_style"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Выбрать режим" />
 
                 <Button
-                    android:id="@+id/btn_theme_two"
-                    android:layout_margin="8dp"
-                    app:cornerRadius="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Blue theme"/>
+                    android:id="@+id/btn_dark_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:clickable="true"
+                    android:layout_marginTop="16dp"
+                    android:text="Включить темный режим"
+                    android:visibility="gone" />
 
                 <Button
-                    android:id="@+id/btn_theme_three"
-                    android:layout_margin="8dp"
-                    app:cornerRadius="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="Red theme"/>
+                    android:id="@+id/btn_light_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:clickable="true"
+                    android:layout_marginTop="16dp"
+                    android:text="Включить светлый режим"
+                    android:visibility="gone" />
         </LinearLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:cardUseCompatPadding="true"
+            app:layout_constraintEnd_toEndOf = "parent"
+            app:layout_constraintEnd_toStartOf = "parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Card"/>
+
+        </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>
 

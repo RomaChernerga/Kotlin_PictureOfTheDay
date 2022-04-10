@@ -1,6 +1,5 @@
-package com.example.pictureofday.picture
+package com.example.pictureofday.main.api.picture
 
-import android.view.ViewTreeObserver
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,7 +20,6 @@ class PictureOfTheDayViewModel(
         }
         private fun sendServerRequest() {
             liveDayDataForViewToObserve.value = PictureOfTheDayData.Loading(null)
-
             val apiKey : String = BuildConfig.NASA_API_KEY
 
             //Проверка на наличие ключа
@@ -37,8 +35,7 @@ class PictureOfTheDayViewModel(
                             liveDayDataForViewToObserve.value = PictureOfTheDayData.Success(response.body()!!)
                         } else {
                             val message = response.message()
-
-                            if (message.isNotEmpty()) {
+                            if (message.isNullOrEmpty()) {
                                 liveDayDataForViewToObserve.value = PictureOfTheDayData.Error(
                                     Throwable("Undefined Error"))
                             } else {

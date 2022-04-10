@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorAccent">#2962FF</color>
+    <color name="colorAccent40Alfa">#662962FF</color>
+    <!-- Def color. -->
+    <color name="primaryColorDEF">#757575</color>
+    <color name="primaryLightColorDEF">#a4a4a4</color>
+    <color name="primaryDarkColorDEF">#494949</color>
+    <color name="secondaryColorDEF">#424242</color>
+    <color name="secondaryLightColorDEF">#6d6d6d</color>
+    <color name="secondaryDarkColorDEF">#1b1b1b</color>
+    <color name="primaryTextColorDEF">#ffffff</color>
+    <color name="secondaryTextColorDEF">#ffffff</color>
+
+    <!-- RedTheme. -->
+    <color name="primaryColorRED">#d50000</color>
+    <color name="primaryLightColorRED">#ff5131</color>
+    <color name="primaryDarkColorRED">#9b0000</color>
+    <color name="secondaryColorRED">#e91e63</color>
+    <color name="secondaryLightColorRED">#ff6090</color>
+    <color name="secondaryDarkColorRED">#b0003a</color>
+    <color name="primaryTextColorRED">#ffffff</color>
+    <color name="secondaryTextColorRED">#000000</color>
+
+    <!-- BlueTheme. -->
+    <color name="primaryColorBLUE">#2962ff</color>
+    <color name="primaryLightColorBLUE">#768fff</color>
+    <color name="primaryDarkColorBLUE">#0039cb</color>
+    <color name="secondaryColorBLUE">#82b1ff</color>
+    <color name="secondaryLightColorBLUE">#b6e3ff</color>
+    <color name="secondaryDarkColorBLUE">#4d82cb</color>
+    <color name="primaryTextColorBLUE">#ffffff</color>
+    <color name="secondaryTextColorBLUE">#000000</color>
+
+
+
+</resources>

@@ -1,4 +1,4 @@
-package com.example.pictureofday.picture
+package com.example.pictureofday.main.api.picture
 
 sealed class PictureOfTheDayData {
         // 3 состояния картинки - Грузится, Готово и Ошибка

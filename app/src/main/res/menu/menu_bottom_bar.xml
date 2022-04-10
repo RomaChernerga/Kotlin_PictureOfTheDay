@@ -5,7 +5,6 @@
     <item
         android:id="@+id/app_bar_api"
         android:icon="@drawable/icon_telescope40"
-        android:iconTint="@color/white"
         android:title="Телескоп"
         app:showAsAction="ifRoom" />
 

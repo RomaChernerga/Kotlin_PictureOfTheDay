@@ -10,15 +10,42 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PictureOfDay">
-        <activity
-            android:name=".apibottom.ApiBottomActivity"
-            android:exported="false" />
-        <activity
-            android:name=".api.ApiActivity"
-            android:exported="false" />
+        android:theme="@style/DefaultTheme">
         <activity
             android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.api.recycler.RecyclerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.apibottom.animations.AnimationActivityInterpollator"
+            android:exported="false" />
+        <activity
+            android:name=".ui.apibottom.animations.AnimationActivityAnimator"
+            android:exported="false" />
+        <activity
+            android:name=".ui.apibottom.animations.AnimationActivityShuffle"
+            android:exported="false" />
+        <activity
+            android:name=".ui.apibottom.animations.AnimationActivityPath"
+            android:exported="false" />
+        <activity
+            android:name=".ui.apibottom.animations.AnimationActivity_enlarge"
+            android:exported="false" />
+        <activity
+            android:name=".ui.apibottom.animations.AnimationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.api.chips.SwipeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.apibottom.ApiBottomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".main.api.ApiActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +53,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>

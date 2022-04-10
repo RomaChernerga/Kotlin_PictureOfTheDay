@@ -1,4 +1,4 @@
-package com.example.pictureofday.api
+package com.example.pictureofday.main.api
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package com.example.pictureofday.api
+package com.example.pictureofday.main.api
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

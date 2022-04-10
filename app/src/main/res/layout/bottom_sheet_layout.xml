@@ -5,11 +5,11 @@
     android:id="@+id/bottom_sheet_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#039BE5"
-    app:behavior_hideable="true"
-    app:behavior_peekHeight="100dp"
-
-    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    android:background="@drawable/back_default"
+    android:alpha="0.85"
+    app:behavior_hideable="false"
+    app:behavior_peekHeight="125dp"
+    app:layout_behavior="@string/bottom_sheet_behavior"
     android:visibility="visible">
 
     <View
@@ -17,7 +17,7 @@
         android:layout_width="25dp"
         android:layout_height="1dp"
         android:layout_marginTop="5dp"
-        android:background="#E11616"
+        android:background="#ED0909"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,13 +29,11 @@
         android:layout_marginTop="5dp"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        android:textColor="#000"
-        android:textStyle="bold"
         style="@android:style/TextAppearance.Holo.Large"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_line"
-        android:text="Two Clusters and a Comet" />
+        android:text="Someone tittle..." />
 
     <TextView
         android:id="@+id/bottom_sheet_description"
@@ -43,11 +41,10 @@
         android:layout_height="wrap_content"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
-        android:textColor="#000"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bottom_sheet_description_header"
-        android:text="This lovely starfield spans some four full moon" />
+        android:text="Someone information.." />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,13 +2,34 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="none">
         <item
-            android:id="@+id/theme_one"
-            android:icon="@drawable/theme_icon1_40"
-            android:title="Тема 1" />
+            android:id="@+id/screen_one"
+            android:icon="@drawable/monitor_24"
+            android:title="AnimationsActivityExplode" />
         <item
-            android:id="@+id/theme_two"
-            android:icon="@drawable/theme_icon2_40"
-            android:title="Тема 2" />
+            android:id="@+id/screen_two"
+            android:icon="@drawable/monitor_24"
+            android:title="AnimationActivity_enlarge" />
+
+        <item
+            android:id="@+id/screen_three"
+            android:icon="@drawable/monitor_24"
+            android:title="AnimationActivityPath" />
+        <item
+            android:id="@+id/screen_four"
+            android:icon="@drawable/monitor_24"
+            android:title="AnimationActivityShuffle" />
+        <item
+            android:id="@+id/screen_five"
+            android:icon="@drawable/monitor_24"
+            android:title="AnimationActivityAnimator" />
+        <item
+            android:id="@+id/screen_six"
+            android:icon="@drawable/monitor_24"
+            android:title="AnimationActivityInterpollator" />
+        <item
+            android:id="@+id/screen_seven"
+            android:icon="@drawable/monitor_24"
+            android:title="RecyclerView_1" />
 
     </group>
 </menu>
