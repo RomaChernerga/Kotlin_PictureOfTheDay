@@ -2,6 +2,8 @@ package com.example.pictureofday.picture
 
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -19,6 +21,8 @@ class PictureOfTheDayFragment : Fragment() {
     private lateinit var bottomSheetBehavior: BottomSheetBehavior<ConstraintLayout>
     private lateinit var viewModel: PictureOfTheDayViewModel
 
+
+
     companion object {
         fun newInstance() = PictureOfTheDayFragment()
         private var isMain = true
@@ -32,6 +36,22 @@ class PictureOfTheDayFragment : Fragment() {
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        setBottomSheetBehavior(view.findViewById(R.id.bottom_sheet_container))
+
+        textInputLayout.setEndIconOnClickListener {
+            startActivity(Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("https://en.wikipedia.org/wiki/${editText.text.toString()}")
+            })
+        }
+
+
+
+
+    }
+
     @SuppressLint("FragmentLiveDataObserve")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -39,6 +59,22 @@ class PictureOfTheDayFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(PictureOfTheDayViewModel::class.java)
         viewModel.getData()
             .observe(this@PictureOfTheDayFragment, Observer<PictureOfTheDayData> { renderData(it) })
+    }
+
+    private fun setBottomSheetBehavior(bottomSheet: ConstraintLayout) {
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+
+//        bottomSheetBehavior.addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+//            override fun onStateChanged(bottomSheet: View, newState: Int) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+//                TODO("Not yet implemented")
+//            }
+//
+//        })
     }
 
 
@@ -68,6 +104,10 @@ class PictureOfTheDayFragment : Fragment() {
             }
         }
     }
+
+
+
+
 
     private fun Fragment.toast(string: String?) {
         Toast.makeText(context, string, Toast.LENGTH_SHORT).apply {
